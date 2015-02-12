@@ -14,16 +14,16 @@ function onScroll() {
 }
 
 function animateNavbar() {
-    $("nav").fadeIn(750, onScroll);
+    $("nav ul li p").fadeIn(750);
 }
 
 function whenReady() {
-    console.clear();
-    $("nav").hide();
+    $("nav ul li p").hide();
     animateStartupElements(true, animateNavbar);
     $("#page-home").hide();
     $("#page-home").fadeIn(1500);
     $(window).scroll(onScroll);
+    onScroll();
 }
 
 $(document).ready(whenReady);
