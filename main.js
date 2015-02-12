@@ -14,7 +14,7 @@ function onScroll() {
 }
 
 function animateNavbar() {
-    $("nav").fadeIn(750);
+    $("nav").fadeIn(750, onScroll);
 }
 
 function whenReady() {
