@@ -1,0 +1,51 @@
+* {
+    margin: 0 0 0 0;
+    font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+}
+
+section {
+    height: 100%;
+    padding: 3em 3em 3em 3em;
+    background-color: white;
+}
+
+#page-home {
+    background-color: black;
+    color: white;
+}
+
+#page-home-inner {
+    display: block;
+    text-align: center;
+}
+
+footer {
+    background-color: rgb(90, 90, 90);
+    height: 40%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+}
+
+h1.big {
+    font-size: 3em;
+}
+
+#page-home p, .startup-anim {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1em;
+}
+
+p.paragraph {
+    width: 375px;
+}
