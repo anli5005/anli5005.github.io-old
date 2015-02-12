@@ -30,6 +30,8 @@ function animateStartupElements(isPersistent, completion) {
                     img2.fadeOut(750, completion);
                 }
                 window.setTimeout(thirdAnimation, 1000);
+            } else {
+                completion();
             }
         }
         img.fadeIn(1500, prepareThirdAnimation);
