@@ -13,6 +13,13 @@ function onScroll() {
             navBar.removeClass("fixed");
         }
     }
+    
+    // Calculate "scroll down for more" showing
+    if (scrollTop > (navTop - $(window).height())) {
+        $("#scroll-message").hide();
+    } else {
+        $("#scroll-message").show();
+    }
 }
 
 function animCompelete() {}
