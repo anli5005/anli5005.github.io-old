@@ -46,6 +46,10 @@ nav ul li:nth-child(even) {
     background-color: rgb(0, 176, 255);
 }
 
+nav ul li:hover {
+    background-color: rgb(0, 200, 255);
+}
+
 nav ul li img {
     height: 1em;
 }
