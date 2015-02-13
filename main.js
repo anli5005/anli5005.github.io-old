@@ -13,15 +13,16 @@ function onScroll() {
     }
 }
 
-function animateNavbar() {
-    $("nav ul li p").fadeIn(750);
+function animCompelete() {}
+
+function animateHome() {
+    $("#page-home").hide();
+    $("#page-home").fadeIn(1500);
 }
 
 function whenReady() {
-    $("nav ul li p").hide();
-    animateStartupElements(true, animateNavbar);
-    $("#page-home").hide();
-    $("#page-home").fadeIn(1500);
+    animateStartupElements(true, animCompelete);
+    animateHome();
     $(window).scroll(onScroll);
     onScroll();
 }
