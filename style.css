@@ -127,6 +127,14 @@ p.paragraph {
     width: 375px;
 }
 
+p.cols {
+    width: 100%;
+    padding: 1em 1em 1em 1em;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+}
+
 #page-about {
     padding-top: 4em;
 }
