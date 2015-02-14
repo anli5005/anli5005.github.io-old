@@ -11,8 +11,31 @@ body {
     background-color: black;
 }
 
-header, section {
+a {
+    text-decoration: none;
+    color: rgb(0, 138, 255);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(0, 100, 255);
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+    color: rgb(0, 176, 255);
+}
+
+a:focus {
+    text-decoration: underline;
+    color: rgb(255, 0, 0);
+}
+
+header, section, footer {
     display: block;
+}
+
+header, section {
     min-height: 100%;
     padding-left: 3em;
     padding-top: 3em;
@@ -57,6 +80,11 @@ nav ul li:nth-child(even) {
     background-color: rgb(0, 176, 255);
 }
 
+/* The background color for the Github link */
+nav ul li:nth-child(4) {
+    background-color: rgb(100, 100, 120);
+}
+
 nav ul li:hover {
     background-color: rgb(0, 200, 255);
 }
@@ -99,6 +127,7 @@ li.navItem {
 footer {
     background-color: rgb(90, 90, 90);
     height: 40%;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -128,12 +157,12 @@ p.paragraph {
     width: 375px;
 }
 
-p.cols {
-    width: 100%;
-    padding: 1em 1em 1em 1em;
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
+.paragraph2 {
+    margin-bottom: 1em;
+}
+
+p.paragraph2 {
+    width: 750px;
 }
 
 #page-about {

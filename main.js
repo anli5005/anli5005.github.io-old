@@ -1,3 +1,8 @@
+// Create HTML5 elements.
+document.createElement("header");
+document.createElement("section");
+document.createElement("footer");
+
 this.lastTimerId = -1;
 
 function onScroll() {
