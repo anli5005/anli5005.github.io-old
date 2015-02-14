@@ -93,12 +93,12 @@ nav ul li img {
     height: 1em;
 }
 
-nav a, nav a:visited {
+nav a, nav a:visited, footer a, footer a:visited {
     text-decoration: none;
     color: white;
 }
 
-nav a:hover, nav a:active {
+nav a:hover, nav a:active, footer a:hover, footer a:active {
     text-decoration: underline;
     color: white;
 }
@@ -184,4 +184,19 @@ p.paragraph2 {
     border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#footer-a {
+    height: 70%;
+    margin: 0.5em 0.5em 0 0.5em;
+    border-bottom: 3px solid white;
+}
+
+#footer-b {
+    padding: 1em 1em 1em 1em;
+}
+
+footer p {
+    margin-right: 1.5em;
+    float: left;
 }
