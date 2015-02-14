@@ -76,6 +76,7 @@ nav a:hover, nav a:active {
 }
 
 li.navItem {
+    display: block;
     color: white;
     padding: 0.5em 0em 0.5em 0em;
     font-size: 1.5em;
