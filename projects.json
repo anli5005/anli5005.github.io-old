@@ -1,7 +1,12 @@
 [
  {
  "name" : "Scratch Projects",
- "about": "",
+ "about": "My home on Scratch!",
  "link" : "http://scratch.mit.edu/users/anli"
+ },
+ {
+ "name" : "anli5005.github.io",
+ "about": "The repository of this website on Github.",
+ "link" : "http://github.com/anli5005/anli5005.github.io"
  }
 ]
