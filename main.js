@@ -5,6 +5,45 @@ document.createElement("footer");
 
 this.lastTimerId = -1;
 
+function loadProjects() {
+    function showProjects(data, status, xhr) {
+        var table = $("table#projects");
+        var rows = Math.floor(data.length / 2) + 1;
+        var cells = data.length;
+        
+        var rowNum = 0;
+        while (rowNum < rows) {
+            var row = $("<tr></tr>");
+            var i = 0;
+            while ((i < 2) && (((2 * rowNum) + i) < cells)) {
+                var cellNum = (2 * rowNum) + i;
+                var cellData = data[cellNum];
+                var cell = $("<td></td>");
+                
+                var cellLeft = $("<div class=\"left-project-detail\"></div>");
+                var cellName = $("<p class=\"big\"></p>");
+                cellName.text(cellData.name).appendTo(cellLeft);
+                cellLeft.appendTo(cell);
+                
+                var cellRight = $("<div class=\"right-project-detail\"></div>");
+                var visitLink = $("<a>Visit</a>");
+                visitLink.attr("href", cellData.link);
+                if (cellData.link.indexOf("github") < 0) {
+                    visitLink.attr("target", "_blank");
+                }
+                visitLink.appendTo(cellRight);
+                cellRight.appendTo(cell);
+                
+                cell.appendTo(row);
+                i++;
+            }
+            row.appendTo(table);
+            rowNum++;
+        }
+    }
+    $.get("projects.json", {}, showProjects, "json");
+}
+
 function onScroll() {
     var scrollTop = $("body").scrollTop();
     var navTop = $("#navigation-bar").offset().top;
@@ -35,6 +74,8 @@ function animateHome() {
 }
 
 function whenReady() {
+    loadProjects();
+    
     animateStartupElements(true, animCompelete);
     animateHome();
     $(window).scroll(onScroll);
@@ -49,6 +90,10 @@ function scrollTo(selector) {
     var offset = $(selector).offset().top;
     var body = $("body");
     var st = body.scrollTop();
+    
+    if (offset > $("#navigation-bar").offset().top) {
+        offset -= $("nav").height();
+    }
     
     // Prepare animation blocks
     function scrollUp() {

@@ -212,8 +212,20 @@ table#projects td {
     padding: 0.5em;
     width: 50%;
     box-shadow: 5px 5px 10px #888888;
+    font-size: 2em;
 }
 
-.no-transform {
+table#projects td a {
+    font-size: 18pt;
+}
+
+.no-transform, table#projects td h2 {
     text-transform: none;
+}
+
+.left-project-detail {
+    float: left;
+}
+.right-project-detail {
+    float: right;
 }
