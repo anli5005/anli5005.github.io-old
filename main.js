@@ -74,6 +74,17 @@ function animateHome() {
 }
 
 function whenReady() {
+    var navLinkIds = ["#page-home", "#page-about", "#page-projects", ""];
+    var navElements = $("nav ul li a");
+    var i = 0;
+    while (i < navLinkIds.length) {
+        if (navLinkIds[i] != "") {
+            var element = navElements.eq(i);
+            element.attr("href", "javascript:scrollTo(\""+navLinkIds[i]+"\")");
+        }
+        i++;
+    }
+    
     loadProjects();
     
     animateStartupElements(true, animCompelete);
