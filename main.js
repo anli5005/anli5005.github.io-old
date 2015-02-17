@@ -6,42 +6,48 @@ document.createElement("footer");
 this.lastTimerId = -1;
 
 function loadProjects() {
-    function showProjects(data, status, xhr) {
-        var table = $("table#projects");
-        var rows = Math.floor(data.length / 2) + 1;
-        var cells = data.length;
-        
-        var rowNum = 0;
-        while (rowNum < rows) {
-            var row = $("<tr></tr>");
-            var i = 0;
-            while ((i < 2) && (((2 * rowNum) + i) < cells)) {
-                var cellNum = (2 * rowNum) + i;
-                var cellData = data[cellNum];
-                var cell = $("<td></td>");
-                
-                var cellLeft = $("<div class=\"left-project-detail\"></div>");
-                var cellName = $("<p class=\"big\"></p>");
-                cellName.text(cellData.name).appendTo(cellLeft);
-                cellLeft.appendTo(cell);
-                
-                var cellRight = $("<div class=\"right-project-detail\"></div>");
-                var visitLink = $("<a>Visit</a>");
-                visitLink.attr("href", cellData.link);
-                if (cellData.link.indexOf("github") < 0) {
-                    visitLink.attr("target", "_blank");
-                }
-                visitLink.appendTo(cellRight);
-                cellRight.appendTo(cell);
-                
-                cell.appendTo(row);
-                i++;
+    var listRows = $("ol#project-list li");
+    
+    var table = $("table#projects");
+    var rows = Math.floor(listRows.length / 2) + 1;
+    var cells = listRows.length;
+    
+    var rowNum = 0;
+    while (rowNum < rows) {
+        var row = $("<tr></tr>");
+        var i = 0;
+        while ((i < 2) && (((2 * rowNum) + i) < cells)) {
+            var cellNum = (2 * rowNum) + i;
+            var cellData = listRows.eq(cellNum);
+            var cell = $("<td></td>");
+            
+            var cellLink = cellData.children().filter("a");
+            var cellSpan = cellData.children().filter(".about");
+            
+            var nameData = cellLink.text();
+            var linkData = cellLink.attr("href");
+            var moreData = cellSpan.text();
+            
+            var cellLeft = $("<div class=\"left-project-detail\"></div>");
+            var cellName = $("<p class=\"big\"></p>");
+            cellName.text(nameData).appendTo(cellLeft);
+            cellLeft.appendTo(cell);
+            
+            var cellRight = $("<div class=\"right-project-detail\"></div>");
+            var visitLink = $("<a>Visit</a>");
+            visitLink.attr("href", linkData);
+            if (linkData.indexOf("github") < 0) {
+                visitLink.attr("target", "_blank");
             }
-            row.appendTo(table);
-            rowNum++;
+            visitLink.appendTo(cellRight);
+            cellRight.appendTo(cell);
+            
+            cell.appendTo(row);
+            i++;
         }
+        row.appendTo(table);
+        rowNum++;
     }
-    $.get("projects.json", {}, showProjects, "json");
 }
 
 function onScroll() {
@@ -74,6 +80,8 @@ function animateHome() {
 }
 
 function whenReady() {
+    $("ol#project-list").hide();
+    
     var navLinkIds = ["#page-home", "#page-about", "#page-projects", ""];
     var navElements = $("nav ul li a");
     var i = 0;
