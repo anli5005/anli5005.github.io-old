@@ -26,20 +26,25 @@ function loadProjects() {
             
             var nameData = cellLink.text();
             var linkData = cellLink.attr("href");
-            var moreData = cellSpan.text();
             
             var cellLeft = $("<div class=\"left-project-detail\"></div>");
-            var cellName = $("<p class=\"big\"></p>");
+            var cellName = $("<p></p>");
             cellName.text(nameData).appendTo(cellLeft);
             cellLeft.appendTo(cell);
             
             var cellRight = $("<div class=\"right-project-detail\"></div>");
+            
             var visitLink = $("<a>Visit</a>");
             visitLink.attr("href", linkData);
             if (linkData.indexOf("github") < 0) {
                 visitLink.attr("target", "_blank");
             }
-            visitLink.appendTo(cellRight);
+            $("<p></p>").append(visitLink).appendTo(cellRight);
+            
+            var moreLink = $("<a>Info</a>");
+            moreLink.attr("href", "javascript:showAboutInfo("+cellNum+")");
+            $("<p></p>").append(moreLink).appendTo(cellRight);
+            
             cellRight.appendTo(cell);
             
             cell.appendTo(row);
@@ -77,6 +82,47 @@ function animCompelete() {}
 function animateHome() {
     $("#page-home").hide();
     $("#page-home").fadeIn(1500);
+}
+
+function showAboutInfo(dataIndex) {
+    var cellData = $("ol#project-list li").eq(dataIndex);
+    var cellLink = cellData.children().filter("a");
+    var cellSpan = cellData.children().filter(".about");
+    
+    var dialog = $("#about-dialog");
+    
+    var nameData = cellLink.text();
+    var linkData = cellLink.attr("href");
+    var moreData = cellSpan.text();
+    
+    var n = dialog.children().filter("p.big");
+    var a = dialog.children().filter("p.paragraph");
+    var l = dialog.children().filter("p.visit-link").children().filter("a");
+    
+    n.text(nameData);
+    a.text(moreData);
+    l.attr("href", linkData);
+    
+    if (linkData.indexOf("github") < 0) {
+        l.attr("target", "_blank");
+    }
+    
+    $("#about-dialog").show();
+}
+
+function hideAboutInfo(dataIndex) {
+    $("#about-dialog").hide();
+    
+    var dialog = $("#about-dialog");
+    
+    var n = dialog.children().filter("p.big");
+    var a = dialog.children().filter("p.paragraph");
+    var l = dialog.children().filter("p.visit-link").children().filter("a");
+    
+    n.text("");
+    a.text("");
+    l.removeAttr("href");
+    l.removeAttr("target");
 }
 
 function whenReady() {
