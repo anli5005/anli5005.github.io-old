@@ -1,6 +1,5 @@
 * {
     margin: 0 0 0 0;
-    font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 html, body {
@@ -9,6 +8,7 @@ html, body {
 
 body {
     background-color: black;
+    font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 a {
